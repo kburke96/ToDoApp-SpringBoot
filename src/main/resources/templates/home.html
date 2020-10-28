@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>To Do List Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+
+
+<div class="container">
+	<body>
+		<h1>To Do List Application</h1>
+
+		<div class="row align-items-start justify-content-between">
+			<div class="col-4">
+				<h3>To Do</h3>
+				<div class="card" style="width: 18rem;"
+					th:each="task : ${todoTasks}">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${task.title}"></h5>
+						<h6 class="card-title" th:text="${task.status}"></h6>
+						<p class="card-text" th:text="${task.description}"></p>
+						<a href="#" class="card-link">Card link</a> <a href="#"
+							class="card-link">Another link</a>
+					</div>
+				</div>
+				<br/>
+			</div>
+			<div class="col-4">
+				<h3>In Progress</h3>
+				<div class="card" style="width: 18rem;"
+					th:each="task : ${inprogressTasks}">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${task.title}"></h5>
+						<h6 class="card-title" th:text="${task.status}"></h6>
+						<p class="card-text" th:text="${task.description}"></p>
+						<a href="#" class="card-link">Card link</a> <a href="#"
+							class="card-link">Another link</a>
+					</div>
+				</div>
+				<br/>
+			</div>
+			<div class="col-4">
+				<h3>Done</h3>
+				<div class="card mb-3" style="width: 18rem;"
+					th:each="task : ${doneTasks}">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${task.title}"></h5>
+						<h6 class="card-title" th:text="${task.status}"></h6>
+						<p class="card-text" th:text="${task.description}"></p>
+						<a href="#" class="card-link">Card link</a> <a href="#"
+							class="card-link">Another link</a>
+					</div>
+				</div>
+				<br/>
+			</div>
+		</div>
+
+	</body>
+</div>
+
+
+
+</html>
