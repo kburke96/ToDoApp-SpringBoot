@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,10 +41,18 @@ public class HomeController {
 	}
 	
 	
+	@GetMapping("/new")
+	public String addNewTaskPage(Model model) {
+		Task task = new Task();
+		model.addAttribute(task);
+		return "addnewtask";
+	}
+	
+	
 	@PostMapping("/update")
-	public ResponseEntity<?> addNewTask(@RequestBody Task task) {
+	public String submitForm(@ModelAttribute("task") Task task) {
 		taskService.addTask(task);
-		return new ResponseEntity("Task added", HttpStatus.OK);
+		return "add_success";
 	}
 
 }

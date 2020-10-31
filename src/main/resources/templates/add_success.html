@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>To Do List Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+
+
+<div class="container">
+	<body>
+		<h1>To Do List Application</h1>
+
+		<h3>Add a new task</h3>
+
+
+		<div align="left">
+			<h2>Registration Succeeded!</h2>
+			<span>Title:</span><span th:text="${task.title}"></span><br />
+			<span>Description:</span><span th:text="${task.description}"></span><br /> 
+			<span>Status:</span><span th:text="${task.status}"></span><br />
+		</div>
+
+	</body>
+</div>
+
+
+
+</html>
