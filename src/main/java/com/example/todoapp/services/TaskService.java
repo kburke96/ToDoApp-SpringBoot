@@ -10,7 +10,7 @@ public interface TaskService {
 	public List<Task> findByStatus(String status);
 	public Task findByDescription(String description);
 	
-	Task updateTask(Task task);
+	Task addTask(Task task);
 	
 
 }

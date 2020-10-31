@@ -3,9 +3,13 @@ package com.example.todoapp.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.todoapp.models.Task;
@@ -26,8 +30,6 @@ public class HomeController {
 	
 	@GetMapping("/home")
 	public String home(Model model) {
-		//System.out.println(taskService.findAll());
-		List<Task> allTasks = taskService.findAll();
 		List<Task> todoTasks = taskService.findByStatus("To Do");
 		List<Task> inprogressTasks = taskService.findByStatus("In Progress");
 		List<Task> doneTasks = taskService.findByStatus("Done");
@@ -35,6 +37,13 @@ public class HomeController {
 		model.addAttribute("inprogressTasks",inprogressTasks);
 		model.addAttribute("doneTasks",doneTasks);
 		return "home";
+	}
+	
+	
+	@PostMapping("/update")
+	public ResponseEntity<?> addNewTask(@RequestBody Task task) {
+		taskService.addTask(task);
+		return new ResponseEntity("Task added", HttpStatus.OK);
 	}
 
 }

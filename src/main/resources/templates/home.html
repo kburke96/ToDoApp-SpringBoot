@@ -16,7 +16,7 @@
 		<div class="row align-items-start justify-content-between">
 			<div class="col-4">
 				<h3>To Do</h3>
-				<div class="card" style="width: 18rem;"
+				<div class="card mb-3" style="width: 18rem;"
 					th:each="task : ${todoTasks}">
 					<div class="card-body">
 						<h5 class="card-title" th:text="${task.title}"></h5>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="col-4">
 				<h3>In Progress</h3>
-				<div class="card" style="width: 18rem;"
+				<div class="card mb-3" style="width: 18rem;"
 					th:each="task : ${inprogressTasks}">
 					<div class="card-body">
 						<h5 class="card-title" th:text="${task.title}"></h5>
